@@ -40,6 +40,8 @@ function drawChart(city) {
         .domain([0, d3.max(cityData, d => d.temperatura)])
         .range([400, 0]);
 
+    const chartHeight = 400; // Altura total del gráfico
+
     // Crear las barras del gráfico
     svg.selectAll('.bar')
         .data(cityData)
@@ -48,7 +50,7 @@ function drawChart(city) {
         .attr('x', d => xScale(d.fecha))
         .attr('y', d => yScale(d.temperatura))
         .attr('width', xScale.bandwidth())
-        .attr('height', d => 400 - yScale(d.temperatura))
+        .attr('height', d => chartHeight - yScale(d.temperatura))
         .attr('fill', 'steelblue');
 }
 
