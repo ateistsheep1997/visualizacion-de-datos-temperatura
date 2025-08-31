@@ -55,6 +55,7 @@ function drawChart(city) {
 }
 
 // Listener para el cambio en la selección de ciudad
+// Esto permitirá al usuario cambiar entre diferentes ciudades y ver sus datos
 document.getElementById('city-select').addEventListener('change', (event) => {
     drawChart(event.target.value);
 });
