@@ -20,7 +20,7 @@ function drawChart(city) {
     // Verificar si la ciudad existe en los datos
     if (!data[city]) {
         console.error(`Ciudad no encontrada: ${city}`);
-        return;
+        return; // Terminar la función si la ciudad no existe
     }
 
     // Limpiar el gráfico existente y crear un nuevo SVG
@@ -58,4 +58,5 @@ document.getElementById('city-select').addEventListener('change', (event) => {
 });
 
 // Dibuja el gráfico inicial
+// Se inicializa el gráfico con los datos de la ciudad1
 drawChart('ciudad1');
