@@ -23,12 +23,14 @@ function drawChart(city) {
         return;
     }
 
+    // Limpiar el gráfico existente y crear un nuevo SVG
     const svg = d3.select('#chart').html('').append('svg')
         .attr('width', 600)
         .attr('height', 400);
 
     const cityData = data[city];
 
+    // Escalas de los ejes X y Y
     const xScale = d3.scaleBand()
         .domain(cityData.map(d => d.fecha))
         .range([0, 600])
@@ -38,6 +40,7 @@ function drawChart(city) {
         .domain([0, d3.max(cityData, d => d.temperatura)])
         .range([400, 0]);
 
+    // Crear las barras del gráfico
     svg.selectAll('.bar')
         .data(cityData)
         .enter().append('rect')
@@ -49,6 +52,7 @@ function drawChart(city) {
         .attr('fill', 'steelblue');
 }
 
+// Listener para el cambio en la selección de ciudad
 document.getElementById('city-select').addEventListener('change', (event) => {
     drawChart(event.target.value);
 });
