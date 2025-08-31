@@ -17,6 +17,12 @@ const data = {
 };
 
 function drawChart(city) {
+    // Verificar si la ciudad existe en los datos
+    if (!data[city]) {
+        console.error(`Ciudad no encontrada: ${city}`);
+        return;
+    }
+
     const svg = d3.select('#chart').html('').append('svg')
         .attr('width', 600)
         .attr('height', 400);
